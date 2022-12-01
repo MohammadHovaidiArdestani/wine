@@ -1,4 +1,4 @@
-name: your-workflow-name
+name: first-workflow
 on: [push]
 jobs:
   run:
@@ -23,11 +23,3 @@ jobs:
           
           echo "## Model metrics" > report.md
           cat metrics.txt >> report.md
-      - name: Write CML report
-        env:
-          REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          # Post reports as comments in GitHub PRs
-          cat results.txt >> report.md
-          cml comment create report.md
-          # Your ML workflow goes here
